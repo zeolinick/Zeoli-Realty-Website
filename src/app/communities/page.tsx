@@ -22,7 +22,7 @@ export default function CommunitiesPage() {
 
       <section className="bg-bone pb-16 md:pb-24">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="arch relative aspect-[16/9] w-full md:aspect-[16/6]">
+          <div className="arch relative aspect-[16/9] w-full md:aspect-[16/6]" data-parallax>
             <Image
               src="/images/work/aerial.jpg"
               alt="Aerial view over a Southeast Michigan neighborhood at golden hour"
@@ -41,7 +41,7 @@ export default function CommunitiesPage() {
             <Link
               key={c.slug}
               href={`/communities/${c.slug}`}
-              className="group flex flex-col rounded-[10px] border border-linen p-7 transition-colors hover:bg-bone"
+              className="group lift flex flex-col rounded-[10px] border border-linen p-7 hover:bg-bone"
             >
               <p className="eyebrow text-[0.65rem]">{c.county} County</p>
               <p className="display mt-3 text-3xl group-hover:underline">

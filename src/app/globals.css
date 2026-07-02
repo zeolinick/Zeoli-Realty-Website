@@ -151,8 +151,9 @@ body {
   }
 }
 
-/* ---------- motion (JS-enhanced; static without it) ---------- */
+/* ---------- motion ---------- */
 
+/* Scroll reveals (JS-enhanced; static without it) */
 .will-reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -165,11 +166,107 @@ body {
   transform: none;
 }
 
+/* Staggered child reveals (JS adds .will-stagger + per-child delays) */
+.will-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.will-stagger.revealed > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Entrance choreography (pure CSS — runs on every page mount) */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.enter {
+  opacity: 0;
+  animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.enter-1 { animation-delay: 0.05s; }
+.enter-2 { animation-delay: 0.18s; }
+.enter-3 { animation-delay: 0.32s; }
+.enter-4 { animation-delay: 0.46s; }
+.enter-5 { animation-delay: 0.62s; }
+
+/* Masked word-by-word headline rise */
+@keyframes word-rise {
+  from {
+    transform: translateY(112%);
+  }
+  to {
+    transform: none;
+  }
+}
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.word-mask > span {
+  display: inline-block;
+  transform: translateY(112%);
+  animation: word-rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: inherit;
+}
+
+/* Arch images: hover zoom + optional JS parallax via --py */
 .arch img {
+  transform: translateY(var(--py, 0)) scale(var(--sc, 1));
   transition: transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .arch:hover img {
-  transform: scale(1.04);
+  --sc: 1.04;
+}
+[data-parallax].arch img {
+  --sc: 1.12;
+  transition: none;
+}
+[data-parallax].arch:hover img {
+  --sc: 1.12;
+}
+
+/* Card hover lift */
+.lift {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px -22px rgba(20, 20, 20, 0.28);
+}
+
+/* Slow editorial marquee */
+.marquee {
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 3.5rem;
+  padding-right: 3.5rem;
+  animation: marquee 48s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .btn:active {
@@ -192,9 +289,20 @@ a:hover .card-arrow,
 
 @media (prefers-reduced-motion: reduce) {
   .will-reveal,
+  .will-stagger > *,
   .arch img,
   .card-arrow,
+  .lift,
   .btn {
     transition: none;
+  }
+  .enter,
+  .word-mask > span {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .marquee-track {
+    animation: none;
   }
 }

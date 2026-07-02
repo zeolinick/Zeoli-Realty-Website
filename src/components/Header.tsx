@@ -9,10 +9,18 @@ import { nav, site } from "@/content/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 12);
+      // Tuck the header away scrolling down; bring it back scrolling up.
+      setHidden(y > 260 && y > lastY);
+      lastY = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -20,9 +28,9 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-paper/95 backdrop-blur transition-shadow ${
+      className={`sticky top-0 z-50 border-b bg-paper/95 backdrop-blur transition-[box-shadow,transform] duration-300 ${
         scrolled ? "border-linen shadow-[0_10px_30px_-18px_rgba(20,20,20,0.25)]" : "border-transparent"
-      }`}
+      } ${hidden && !open ? "-translate-y-full" : "translate-y-0"}`}
     >
       <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5">
         <Logo />

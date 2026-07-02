@@ -35,7 +35,7 @@ export default function TeamPage() {
           </p>
         </div>
         <div className="mx-auto max-w-6xl px-5 pb-16 md:pb-24">
-          <div className="arch relative aspect-[16/10] w-full md:aspect-[16/8]">
+          <div className="arch relative aspect-[16/10] w-full md:aspect-[16/8]" data-parallax>
             <Image
               src="/images/team-full.jpg"
               alt="The Zeoli Realty team"

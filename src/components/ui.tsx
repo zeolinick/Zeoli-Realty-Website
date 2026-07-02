@@ -31,15 +31,20 @@ export function ArchImage({
   className = "",
   sizes,
   priority = false,
+  parallax = false,
 }: {
   src: string;
   alt: string;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  parallax?: boolean;
 }) {
   return (
-    <div className={`arch relative ${className}`}>
+    <div
+      className={`arch relative ${className}`}
+      {...(parallax ? { "data-parallax": "" } : {})}
+    >
       <Image
         src={src}
         alt={alt}
@@ -49,6 +54,46 @@ export function ArchImage({
         className="object-cover"
       />
     </div>
+  );
+}
+
+/** Slow editorial marquee of the communities we serve. */
+export function CityMarquee() {
+  const names = [
+    "Rochester",
+    "Royal Oak",
+    "Birmingham",
+    "Troy",
+    "Bloomfield Hills",
+    "Shelby Township",
+    "Berkley",
+    "Beverly Hills",
+    "Franklin",
+    "Rochester Hills",
+    "Macomb",
+  ];
+  const row = (hidden: boolean) => (
+    <div
+      className="flex shrink-0 items-center gap-14"
+      aria-hidden={hidden || undefined}
+    >
+      {names.map((name) => (
+        <span key={name} className="flex items-center gap-14">
+          <span className="display whitespace-nowrap text-2xl italic text-graphite md:text-3xl">
+            {name}
+          </span>
+          <ArchMark className="h-4 w-4 shrink-0" color="#8c8b7e" />
+        </span>
+      ))}
+    </div>
+  );
+  return (
+    <section className="marquee border-y border-linen bg-bone py-8">
+      <div className="marquee-track">
+        {row(false)}
+        {row(true)}
+      </div>
+    </section>
   );
 }
 
@@ -112,7 +157,7 @@ export function TestimonialCard({
   detail: string;
 }) {
   return (
-    <figure className="flex h-full flex-col rounded-[10px] bg-bone p-7">
+    <figure className="lift flex h-full flex-col rounded-[10px] bg-bone p-7">
       <div className="stars" aria-label="Five stars">
         ★★★★★
       </div>
@@ -140,14 +185,14 @@ export function PageHero({
   return (
     <section className="bg-bone">
       <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
-        <p className="eyebrow eyebrow-rule">{eyebrow}</p>
+        <p className="eyebrow eyebrow-rule enter enter-1">{eyebrow}</p>
         <AccentHeadline
           as="h1"
           text={headline}
-          className="mt-4 max-w-3xl text-4xl md:text-6xl"
+          className="enter enter-2 mt-4 max-w-3xl text-4xl md:text-6xl"
         />
         {intro && (
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate">
+          <p className="enter enter-3 mt-6 max-w-2xl text-lg leading-relaxed text-slate">
             {intro}
           </p>
         )}

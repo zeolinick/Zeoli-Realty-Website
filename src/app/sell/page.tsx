@@ -81,7 +81,7 @@ export default function SellPage() {
             {launchWeek.days.map((d) => (
               <div
                 key={d.day}
-                className="rounded-[10px] border border-linen bg-paper p-6"
+                className="lift rounded-[10px] border border-linen bg-paper p-6"
               >
                 <p className="eyebrow text-[0.65rem]">{d.day}</p>
                 <h3 className="mt-3 font-semibold text-ink">{d.title}</h3>
@@ -103,7 +103,7 @@ export default function SellPage() {
       {/* Everyday homes too */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
-          <div className="arch relative aspect-[16/10] w-full">
+          <div className="arch relative aspect-[16/10] w-full" data-parallax>
             <Image
               src="/images/home-ranch.jpg"
               alt="A Zeoli Realty listing at dusk — every home gets the full launch"
@@ -138,7 +138,7 @@ export default function SellPage() {
           {marketing.items.map((m) => (
             <div
               key={m.title}
-              className="overflow-hidden rounded-[10px] border border-linen"
+              className="lift overflow-hidden rounded-[10px] border border-linen"
             >
               <div className="relative aspect-[4/3]">
                 <Image

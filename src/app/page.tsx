@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArchImage,
+  CityMarquee,
   CtaBand,
   StatBar,
   TestimonialCard,
@@ -17,18 +18,31 @@ export default function HomePage() {
       <section className="bg-bone">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.1fr_1fr] md:py-28">
           <div>
-            <p className="eyebrow eyebrow-rule">
+            <p className="eyebrow eyebrow-rule enter enter-1">
               {site.region} · Est. 2021
             </p>
             <h1 className="display mt-5 text-5xl md:text-[4.75rem]">
-              Partners in building <em>futures.</em>
+              <span className="word-mask" style={{ animationDelay: "0.1s" }}>
+                <span>Partners</span>
+              </span>{" "}
+              <span className="word-mask" style={{ animationDelay: "0.19s" }}>
+                <span>in</span>
+              </span>{" "}
+              <span className="word-mask" style={{ animationDelay: "0.28s" }}>
+                <span>building</span>
+              </span>{" "}
+              <span className="word-mask" style={{ animationDelay: "0.37s" }}>
+                <span>
+                  <em>futures.</em>
+                </span>
+              </span>
             </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate">
+            <p className="enter enter-3 mt-6 max-w-lg text-lg leading-relaxed text-slate">
               Zeoli Realty is a premier team of real estate professionals
               serving Southeast Michigan — 800+ closings, $200M+ sold, and a
               process built around your goals.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="enter enter-4 mt-9 flex flex-wrap gap-4">
               <Link href="/sell" className="btn btn-primary">
                 Sell with us
               </Link>
@@ -36,22 +50,23 @@ export default function HomePage() {
                 Find your home
               </Link>
             </div>
-            <p className="mt-9 text-sm text-slate">
+            <p className="enter enter-5 mt-9 text-sm text-slate">
               <span className="stars">★★★★★</span>
               <span className="ml-3">
                 200+ five-star reviews · {site.reviewSources.join(" · ")}
               </span>
             </p>
           </div>
-          <div className="relative w-full max-w-md justify-self-center md:justify-self-end">
+          <div className="enter enter-2 relative w-full max-w-md justify-self-center md:justify-self-end">
             <ArchImage
               src="/images/hero-estate.jpg"
               alt="A Zeoli Realty listing at twilight — modern stone home in Southeast Michigan"
               className="aspect-[4/5] w-full"
               sizes="(min-width: 768px) 28rem, 90vw"
               priority
+              parallax
             />
-            <div className="absolute -left-4 bottom-8 rounded-[10px] bg-ink px-6 py-4 text-paper shadow-[0_18px_50px_-12px_rgba(20,20,20,0.45)] md:-left-8">
+            <div className="enter enter-5 absolute -left-4 bottom-8 rounded-[10px] bg-ink px-6 py-4 text-paper shadow-[0_18px_50px_-12px_rgba(20,20,20,0.45)] md:-left-8">
               <p className="display text-3xl">96.5%</p>
               <p className="eyebrow mt-1 text-[0.6rem] text-white/50">
                 List-to-sold
@@ -164,6 +179,10 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="mt-20 md:mt-28">
+        <CityMarquee />
+      </div>
+
       {/* Communities */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -182,7 +201,7 @@ export default function HomePage() {
             <Link
               key={c.slug}
               href={`/communities/${c.slug}`}
-              className="group rounded-[10px] border border-linen p-6 transition-colors hover:bg-bone md:p-8"
+              className="group lift rounded-[10px] border border-linen p-6 hover:bg-bone md:p-8"
             >
               <p className="eyebrow text-[0.65rem]">{c.county} County</p>
               <p className="display mt-3 text-2xl group-hover:underline md:text-3xl">
