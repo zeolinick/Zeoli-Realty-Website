@@ -35,9 +35,9 @@ export default function TeamPage() {
           </p>
         </div>
         <div className="mx-auto max-w-6xl px-5 pb-16 md:pb-24">
-          <div className="arch relative aspect-[16/8] w-full">
+          <div className="arch relative aspect-[16/10] w-full md:aspect-[16/8]">
             <Image
-              src="/images/team.jpg"
+              src="/images/team-full.jpg"
               alt="The Zeoli Realty team"
               fill
               sizes="(min-width: 1152px) 72rem, 95vw"
@@ -54,6 +54,15 @@ export default function TeamPage() {
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-[1fr_1.4fr]">
           <div>
+            <div className="arch relative mb-8 aspect-[5/6] w-48 md:w-56">
+              <Image
+                src="/images/nick.jpg"
+                alt="Nick Zeoli, founder of Zeoli Realty"
+                fill
+                sizes="14rem"
+                className="object-cover object-top"
+              />
+            </div>
             <p className="eyebrow">Founder</p>
             <h2 className="display mt-4 text-4xl md:text-5xl">
               {founder.name}

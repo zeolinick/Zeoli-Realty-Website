@@ -114,6 +114,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Recent work */}
+      <section className="mx-auto max-w-6xl px-5 pt-20 md:pt-28">
+        <p className="eyebrow">Recent launches</p>
+        <h2 className="display mt-4 text-3xl md:text-5xl">
+          Every home, launched <em>properly.</em>
+        </h2>
+        <p className="mt-4 max-w-xl leading-relaxed text-slate">
+          Twilight photography, cinematic video, and a one-week launch — from
+          landmark estates to three-bed ranches.
+        </p>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {[
+            {
+              src: "/images/work/craftsman-twilight.jpg",
+              alt: "New-build craftsman home at twilight in the snow",
+            },
+            {
+              src: "/images/work/modern-newbuild.jpg",
+              alt: "Modern white-brick new construction with black trim",
+            },
+            {
+              src: "/images/work/colonial-drive.jpg",
+              alt: "Classic colonial with a circular drive",
+            },
+          ].map((img) => (
+            <ArchImage
+              key={img.src}
+              src={img.src}
+              alt={img.alt}
+              className="aspect-[4/5] w-full"
+              sizes="(min-width: 768px) 24rem, 90vw"
+            />
+          ))}
+        </div>
+      </section>
+
       {/* Communities */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">

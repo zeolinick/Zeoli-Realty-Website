@@ -78,18 +78,26 @@ export const marketing = {
     {
       title: "Professional Photography",
       description: "Magazine-grade shots that make buyers stop scrolling.",
+      image: "/images/work/craftsman-twilight.jpg",
+      alt: "Twilight photograph of a new-build craftsman home in the snow",
     },
     {
       title: "Cinematic Social Video",
       description: "Reels & walkthroughs built for the feed.",
+      image: "/images/work/estate-twilight.jpg",
+      alt: "Twilight exterior of a modern stone estate",
     },
     {
       title: "3D & Matterport Tours",
       description: "Buyers tour anytime — pre-qualifying real interest.",
+      image: "/images/work/kitchen-marble.jpg",
+      alt: "Marble waterfall-island kitchen in a Zeoli Realty listing",
     },
     {
       title: "Virtual Staging",
       description: "Empty or dated rooms shown at full potential.",
+      image: "/images/work/staged-living.jpg",
+      alt: "Staged living room with warm wood floors",
     },
   ],
   callout:

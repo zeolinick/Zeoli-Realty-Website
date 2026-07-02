@@ -138,12 +138,23 @@ export default function SellPage() {
           {marketing.items.map((m) => (
             <div
               key={m.title}
-              className="rounded-[10px] border border-linen p-6"
+              className="overflow-hidden rounded-[10px] border border-linen"
             >
-              <h3 className="font-semibold text-ink">{m.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate">
-                {m.description}
-              </p>
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={m.image}
+                  alt={m.alt}
+                  fill
+                  sizes="(min-width: 768px) 18rem, 90vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-semibold text-ink">{m.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-slate">
+                  {m.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
