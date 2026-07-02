@@ -13,7 +13,7 @@ export default function ContactPage() {
     <section className="bg-bone">
       <div className="mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1fr_1.1fr] md:py-24">
         <div>
-          <p className="eyebrow">Contact</p>
+          <p className="eyebrow eyebrow-rule">Contact</p>
           <h1 className="display mt-4 text-4xl md:text-6xl">
             Let's <em>talk.</em>
           </h1>

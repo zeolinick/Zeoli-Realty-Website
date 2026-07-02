@@ -37,7 +37,7 @@ export default function SellPage() {
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <p className="eyebrow">{teamAdvantage.eyebrow}</p>
+            <p className="eyebrow eyebrow-rule">{teamAdvantage.eyebrow}</p>
             <AccentHeadline
               text={teamAdvantage.headline}
               className="mt-4 text-3xl md:text-5xl"
@@ -60,7 +60,7 @@ export default function SellPage() {
 
       {/* Process */}
       <section className="mx-auto max-w-6xl px-5 pb-20 md:pb-28">
-        <p className="eyebrow">The process</p>
+        <p className="eyebrow eyebrow-rule">The process</p>
         <h2 className="display mt-4 text-3xl md:text-5xl">
           From first meeting to <em>beyond</em> closing.
         </h2>
@@ -72,7 +72,7 @@ export default function SellPage() {
       {/* Launch week */}
       <section className="bg-bone">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <p className="eyebrow">{launchWeek.eyebrow}</p>
+          <p className="eyebrow eyebrow-rule">{launchWeek.eyebrow}</p>
           <AccentHeadline
             text={launchWeek.headline}
             className="mt-4 text-3xl md:text-5xl"
@@ -113,7 +113,7 @@ export default function SellPage() {
             />
           </div>
           <div>
-            <p className="eyebrow">Every home. Every time.</p>
+            <p className="eyebrow eyebrow-rule">Every home. Every time.</p>
             <h2 className="display mt-4 text-3xl md:text-4xl">
               The launch isn't just for the <em>estates.</em>
             </h2>
@@ -129,7 +129,7 @@ export default function SellPage() {
 
       {/* Marketing */}
       <section className="mx-auto max-w-6xl px-5 pb-20 md:pb-28">
-        <p className="eyebrow">{marketing.eyebrow}</p>
+        <p className="eyebrow eyebrow-rule">{marketing.eyebrow}</p>
         <AccentHeadline
           text={marketing.headline}
           className="mt-4 text-3xl md:text-5xl"
@@ -168,7 +168,7 @@ export default function SellPage() {
       {/* While listed */}
       <section className="bg-bone">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <p className="eyebrow">{whileListed.eyebrow}</p>
+          <p className="eyebrow eyebrow-rule">{whileListed.eyebrow}</p>
           <AccentHeadline
             text={whileListed.headline}
             className="mt-4 text-3xl md:text-5xl"
@@ -191,7 +191,7 @@ export default function SellPage() {
 
       {/* Beyond the sale */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-        <p className="eyebrow">{beyondTheSale.eyebrow}</p>
+        <p className="eyebrow eyebrow-rule">{beyondTheSale.eyebrow}</p>
         <AccentHeadline
           text={beyondTheSale.headline}
           className="mt-4 text-3xl md:text-5xl"

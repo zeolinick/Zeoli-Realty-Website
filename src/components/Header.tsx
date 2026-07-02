@@ -2,16 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { nav, site } from "@/content/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-linen bg-paper/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 border-b bg-paper/95 backdrop-blur transition-shadow ${
+        scrolled ? "border-linen shadow-[0_10px_30px_-18px_rgba(20,20,20,0.25)]" : "border-transparent"
+      }`}
+    >
       <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5">
         <Logo />
 
@@ -31,6 +43,12 @@ export function Header() {
               </Link>
             );
           })}
+          <a
+            href={site.phoneHref}
+            className="hidden text-sm font-semibold text-ink xl:block"
+          >
+            {site.phone}
+          </a>
           <Link href="/home-valuation" className="btn btn-primary px-5 py-3">
             Home Valuation
           </Link>

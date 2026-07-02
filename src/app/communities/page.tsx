@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/ui";
 import { communities } from "@/content/communities";
@@ -19,6 +20,21 @@ export default function CommunitiesPage() {
         intro={`From walkable downtowns to wooded estates — the team lives and works across ${site.counties.join(", ")} counties.`}
       />
 
+      <section className="bg-bone pb-16 md:pb-24">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="arch relative aspect-[16/9] w-full md:aspect-[16/6]">
+            <Image
+              src="/images/work/aerial.jpg"
+              alt="Aerial view over a Southeast Michigan neighborhood at golden hour"
+              fill
+              sizes="(min-width: 1152px) 72rem, 95vw"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-24">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {communities.map((c) => (
@@ -35,7 +51,7 @@ export default function CommunitiesPage() {
                 {c.positioning}
               </p>
               <span className="mt-5 text-sm font-semibold text-ink">
-                Explore {c.name} →
+                Explore {c.name} <span className="card-arrow">→</span>
               </span>
             </Link>
           ))}

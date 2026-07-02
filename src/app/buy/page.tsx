@@ -25,7 +25,7 @@ export default function BuyPage() {
 
       {/* Process */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-        <p className="eyebrow">How it works</p>
+        <p className="eyebrow eyebrow-rule">How it works</p>
         <h2 className="display mt-4 text-3xl md:text-5xl">
           From first call to <em>keys.</em>
         </h2>
@@ -48,7 +48,7 @@ export default function BuyPage() {
               />
             </div>
             <div>
-              <p className="eyebrow">{buyerAdvantages.eyebrow}</p>
+              <p className="eyebrow eyebrow-rule">{buyerAdvantages.eyebrow}</p>
               <AccentHeadline
                 text={buyerAdvantages.headline}
                 className="mt-4 text-3xl md:text-5xl"

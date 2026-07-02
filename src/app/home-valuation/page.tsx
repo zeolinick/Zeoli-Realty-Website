@@ -32,7 +32,7 @@ export default function HomeValuationPage() {
       <section className="bg-bone">
         <div className="mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1.1fr_1fr] md:py-24">
           <div>
-            <p className="eyebrow">Free home valuation</p>
+            <p className="eyebrow eyebrow-rule">Free home valuation</p>
             <h1 className="display mt-4 text-4xl md:text-6xl">
               What's your home <em>worth?</em>
             </h1>

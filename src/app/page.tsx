@@ -15,12 +15,12 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="bg-bone">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.1fr_1fr] md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.1fr_1fr] md:py-28">
           <div>
-            <p className="eyebrow">
+            <p className="eyebrow eyebrow-rule">
               {site.region} · Est. 2021
             </p>
-            <h1 className="display mt-5 text-5xl md:text-[4.25rem]">
+            <h1 className="display mt-5 text-5xl md:text-[4.75rem]">
               Partners in building <em>futures.</em>
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate">
@@ -36,14 +36,28 @@ export default function HomePage() {
                 Find your home
               </Link>
             </div>
+            <p className="mt-9 text-sm text-slate">
+              <span className="stars">★★★★★</span>
+              <span className="ml-3">
+                200+ five-star reviews · {site.reviewSources.join(" · ")}
+              </span>
+            </p>
           </div>
-          <ArchImage
-            src="/images/hero-estate.jpg"
-            alt="A Zeoli Realty listing at twilight — modern stone home in Southeast Michigan"
-            className="aspect-[4/5] w-full max-w-md justify-self-center md:justify-self-end"
-            sizes="(min-width: 768px) 28rem, 90vw"
-            priority
-          />
+          <div className="relative w-full max-w-md justify-self-center md:justify-self-end">
+            <ArchImage
+              src="/images/hero-estate.jpg"
+              alt="A Zeoli Realty listing at twilight — modern stone home in Southeast Michigan"
+              className="aspect-[4/5] w-full"
+              sizes="(min-width: 768px) 28rem, 90vw"
+              priority
+            />
+            <div className="absolute -left-4 bottom-8 rounded-[10px] bg-ink px-6 py-4 text-paper shadow-[0_18px_50px_-12px_rgba(20,20,20,0.45)] md:-left-8">
+              <p className="display text-3xl">96.5%</p>
+              <p className="eyebrow mt-1 text-[0.6rem] text-white/50">
+                List-to-sold
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -53,7 +67,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="grid gap-14 md:grid-cols-2 md:gap-10">
           <div className="flex flex-col items-start">
-            <p className="eyebrow">Selling</p>
+            <p className="eyebrow eyebrow-rule">Selling</p>
             <h2 className="display mt-4 text-3xl md:text-4xl">
               We don't just list your home. We <em>launch</em> it.
             </h2>
@@ -67,7 +81,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="flex flex-col items-start">
-            <p className="eyebrow">Buying</p>
+            <p className="eyebrow eyebrow-rule">Buying</p>
             <h2 className="display mt-4 text-3xl md:text-4xl">
               A full team on <em>your</em> side of the table.
             </h2>
@@ -88,7 +102,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <div className="grid items-center gap-12 md:grid-cols-[1fr_1.2fr]">
             <div>
-              <p className="eyebrow">The team advantage</p>
+              <p className="eyebrow eyebrow-rule">The team advantage</p>
               <h2 className="display mt-4 text-3xl md:text-5xl">
                 You're not hiring an agent. You're hiring a <em>team.</em>
               </h2>
@@ -116,7 +130,7 @@ export default function HomePage() {
 
       {/* Recent work */}
       <section className="mx-auto max-w-6xl px-5 pt-20 md:pt-28">
-        <p className="eyebrow">Recent launches</p>
+        <p className="eyebrow eyebrow-rule">Recent launches</p>
         <h2 className="display mt-4 text-3xl md:text-5xl">
           Every home, launched <em>properly.</em>
         </h2>
@@ -154,7 +168,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="eyebrow">Communities</p>
+            <p className="eyebrow eyebrow-rule">Communities</p>
             <h2 className="display mt-4 text-3xl md:text-5xl">
               Rooted in <em>Southeast Michigan.</em>
             </h2>
@@ -185,7 +199,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="bg-paper">
         <div className="mx-auto max-w-6xl px-5 pb-20 md:pb-28">
-          <p className="eyebrow">
+          <p className="eyebrow eyebrow-rule">
             200+ five-star reviews · {site.reviewSources.join(" · ")}
           </p>
           <h2 className="display mt-4 text-3xl md:text-5xl">
@@ -200,7 +214,7 @@ export default function HomePage() {
             href="/reviews"
             className="mt-8 inline-block font-semibold text-ink underline-offset-4 hover:underline"
           >
-            Read more reviews →
+            Read more reviews <span className="card-arrow">→</span>
           </Link>
         </div>
       </section>

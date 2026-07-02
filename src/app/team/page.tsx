@@ -24,7 +24,7 @@ export default function TeamPage() {
     <>
       <section className="bg-bone">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
-          <p className="eyebrow">Our team</p>
+          <p className="eyebrow eyebrow-rule">Our team</p>
           <h1 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
             You're not hiring an agent. You're hiring a <em>team.</em>
           </h1>
@@ -63,7 +63,7 @@ export default function TeamPage() {
                 className="object-cover object-top"
               />
             </div>
-            <p className="eyebrow">Founder</p>
+            <p className="eyebrow eyebrow-rule">Founder</p>
             <h2 className="display mt-4 text-4xl md:text-5xl">
               {founder.name}
             </h2>
@@ -97,7 +97,7 @@ export default function TeamPage() {
       {/* Roles behind every move */}
       <section className="bg-bone">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-          <p className="eyebrow">Behind every move</p>
+          <p className="eyebrow eyebrow-rule">Behind every move</p>
           <h2 className="display mt-4 text-3xl md:text-5xl">
             Four specialists. One <em>standard.</em>
           </h2>
@@ -119,7 +119,7 @@ export default function TeamPage() {
       <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="eyebrow">The Realtors®</p>
+            <p className="eyebrow eyebrow-rule">The Realtors®</p>
             <h2 className="display mt-4 text-3xl md:text-5xl">
               Warm with people. Exact with <em>details.</em>
             </h2>

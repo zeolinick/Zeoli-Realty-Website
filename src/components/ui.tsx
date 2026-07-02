@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArchMark } from "@/components/Logo";
 import { site, stats } from "@/content/site";
 
 export type Accent = { before: string; accent: string; after: string };
@@ -51,14 +52,16 @@ export function ArchImage({
   );
 }
 
-/** Dark band of big serif numerals. */
+/** Dark band of big serif numerals that count up on scroll. */
 export function StatBar() {
   return (
     <section className="bg-ink text-paper">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 px-5 py-14 md:grid-cols-4 md:py-16">
       {stats.map((s) => (
         <div key={s.label} className="text-center">
-          <p className="display text-4xl text-paper md:text-5xl">{s.value}</p>
+          <p className="display text-4xl text-paper md:text-5xl" data-countup>
+            {s.value}
+          </p>
           <p className="eyebrow mt-3 text-white/50">{s.label}</p>
         </div>
       ))}
@@ -81,7 +84,7 @@ export function StepList({
           className="grid gap-4 py-8 md:grid-cols-[110px_220px_1fr] md:gap-8"
         >
           <span
-            className="display text-5xl text-linen md:text-6xl"
+            className="display text-5xl italic text-linen md:text-6xl"
             aria-hidden="true"
           >
             {step.number}
@@ -109,11 +112,14 @@ export function TestimonialCard({
   detail: string;
 }) {
   return (
-    <figure className="flex h-full flex-col justify-between rounded-[10px] bg-bone p-7">
-      <blockquote className="display text-xl leading-snug text-ink">
+    <figure className="flex h-full flex-col rounded-[10px] bg-bone p-7">
+      <div className="stars" aria-label="Five stars">
+        ★★★★★
+      </div>
+      <blockquote className="display mt-4 flex-1 text-xl leading-snug text-ink">
         “{quote}”
       </blockquote>
-      <figcaption className="mt-6 text-sm">
+      <figcaption className="mt-6 border-t border-linen pt-4 text-sm">
         <span className="font-semibold text-ink">{attribution}</span>
         <span className="text-slate"> · {detail}</span>
       </figcaption>
@@ -134,7 +140,7 @@ export function PageHero({
   return (
     <section className="bg-bone">
       <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
-        <p className="eyebrow">{eyebrow}</p>
+        <p className="eyebrow eyebrow-rule">{eyebrow}</p>
         <AccentHeadline
           as="h1"
           text={headline}
@@ -163,8 +169,12 @@ export function CtaBand({
   ctaHref?: string;
 }) {
   return (
-    <section className="on-dark bg-ink text-paper">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[1.5fr_1fr] md:py-20">
+    <section className="on-dark relative overflow-hidden bg-ink text-paper">
+      <ArchMark
+        className="pointer-events-none absolute -bottom-24 -right-10 h-[22rem] w-[22rem] opacity-[0.06]"
+        color="#ffffff"
+      />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[1.5fr_1fr] md:py-20">
         <div>
           <AccentHeadline text={headline} className="text-3xl text-paper md:text-5xl" />
           <p className="mt-5 max-w-xl leading-relaxed text-white/70">{body}</p>

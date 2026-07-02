@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "@/components/Logo";
+import { ArchMark, Logo } from "@/components/Logo";
 import { nav, site } from "@/content/site";
 import { communities } from "@/content/communities";
 
@@ -22,9 +22,21 @@ function EqualHousingIcon() {
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-paper">
-      <div className="mx-auto max-w-6xl px-5 pb-10 pt-16">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
+    <footer className="relative overflow-hidden bg-ink text-paper">
+      <ArchMark
+        className="pointer-events-none absolute -right-16 top-10 h-[26rem] w-[26rem] opacity-[0.04]"
+        color="#ffffff"
+      />
+      <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-16">
+        <div className="flex flex-col gap-8 border-b border-white/15 pb-12 md:flex-row md:items-end md:justify-between">
+          <p className="display on-dark max-w-2xl text-3xl text-paper md:text-5xl">
+            Your goals are our <em>mission.</em>
+          </p>
+          <Link href="/contact" className="btn btn-on-dark shrink-0">
+            Start the conversation
+          </Link>
+        </div>
+        <div className="grid gap-12 pt-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
           <div>
             <Logo variant="light" />
             <p className="display mt-5 max-w-xs text-2xl text-paper">
