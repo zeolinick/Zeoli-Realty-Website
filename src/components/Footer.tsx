@@ -60,7 +60,12 @@ export function Footer() {
           <div>
             <p className="eyebrow mb-4 text-white/50">Explore</p>
             <ul className="space-y-2.5 text-sm">
-              {[...nav, { href: "/home-valuation", label: "Home Valuation" }].map(
+              {[
+                ...nav,
+                { href: "/work", label: "Our Work" },
+                { href: "/careers", label: "Careers" },
+                { href: "/home-valuation", label: "Home Valuation" },
+              ].map(
                 (item) => (
                   <li key={item.href}>
                     <Link

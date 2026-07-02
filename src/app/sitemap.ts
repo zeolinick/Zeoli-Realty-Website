@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/communities",
     "/team",
     "/reviews",
+    "/work",
+    "/careers",
     "/contact",
   ].map((path) => ({
     url: `${site.url}${path}`,

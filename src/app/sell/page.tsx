@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   AccentHeadline,
+  FaqSection,
   PageHero,
   StepList,
 } from "@/components/ui";
+import { sellFaqs } from "@/content/faq";
 import {
   beyondTheSale,
   launchWeek,
@@ -213,6 +215,12 @@ export default function SellPage() {
           Serving {site.counties.join(" · ")} counties
         </p>
       </section>
+
+      <FaqSection
+        eyebrow="Seller questions"
+        headline={{ before: "Asked ", accent: "often", after: "." }}
+        faqs={sellFaqs}
+      />
 
       {/* Next steps */}
       <section className="on-dark bg-ink text-paper">

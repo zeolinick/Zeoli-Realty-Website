@@ -201,6 +201,59 @@ export function PageHero({
   );
 }
 
+/** CSS-only FAQ accordion with FAQPage structured data. */
+export function FaqSection({
+  eyebrow = "Questions",
+  headline,
+  faqs,
+}: {
+  eyebrow?: string;
+  headline: Accent;
+  faqs: { question: string; answer: string }[];
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  return (
+    <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="grid gap-10 md:grid-cols-[1fr_1.6fr]">
+        <div>
+          <p className="eyebrow eyebrow-rule">{eyebrow}</p>
+          <AccentHeadline text={headline} className="mt-4 text-3xl md:text-4xl" />
+        </div>
+        <div className="divide-y divide-linen border-y border-linen">
+          {faqs.map((f) => (
+            <details key={f.question} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                {f.question}
+                <span
+                  className="text-2xl font-light text-stone transition-transform duration-300 group-open:rotate-45"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate">
+                {f.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** Dark call-to-action band — the seller lead magnet. */
 export function CtaBand({
   headline = { before: "What's your home ", accent: "worth", after: "?" },

@@ -31,8 +31,22 @@ export default async function CommunityPage({
 
   const others = communities.filter((c) => c.slug !== community.slug).slice(0, 5);
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeolirealty.com/" },
+      { "@type": "ListItem", position: 2, name: "Communities", item: "https://zeolirealty.com/communities" },
+      { "@type": "ListItem", position: 3, name: community.name },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <section className="bg-bone">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
           <p className="eyebrow">

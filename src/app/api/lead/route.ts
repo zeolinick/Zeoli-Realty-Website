@@ -19,9 +19,18 @@ export async function POST(request: Request) {
   }
 
   const source = "zeolirealty.com";
-  const type = variant === "valuation" ? "Seller Inquiry" : "General Inquiry";
+  const type =
+    variant === "valuation"
+      ? "Seller Inquiry"
+      : variant === "careers"
+        ? "Recruiting Inquiry"
+        : "General Inquiry";
   const description = [
-    variant === "valuation" ? "Home valuation request" : "Contact form message",
+    variant === "valuation"
+      ? "Home valuation request"
+      : variant === "careers"
+        ? "Agent recruiting inquiry (careers page)"
+        : "Contact form message",
     address && `Property: ${address}`,
     message && `Message: ${message}`,
   ]

@@ -145,7 +145,13 @@ export default function TeamPage() {
           ))}
         </div>
         <p className="mt-8 text-sm text-slate">
-          …and the rest of the team across {site.offices.join(", ")}.
+          …and the rest of the team across {site.offices.join(", ")}.{" "}
+          <Link
+            href="/careers"
+            className="font-semibold text-ink underline-offset-4 hover:underline"
+          >
+            Thinking about joining us?
+          </Link>
         </p>
       </section>
 

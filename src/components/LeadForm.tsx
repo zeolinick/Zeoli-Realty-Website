@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Variant = "valuation" | "contact";
+type Variant = "valuation" | "contact" | "careers";
 
 export function LeadForm({ variant }: { variant: Variant }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -103,14 +103,16 @@ export function LeadForm({ variant }: { variant: Variant }) {
         <label className="form-label" htmlFor="message">
           {variant === "valuation"
             ? "Anything we should know? (optional)"
-            : "How can we help?"}
+            : variant === "careers"
+              ? "Tell us about yourself — licensed? producing? just starting?"
+              : "How can we help?"}
         </label>
         <textarea
           className="form-field min-h-28"
           id="message"
           name="message"
           rows={4}
-          required={variant === "contact"}
+          required={variant !== "valuation"}
         />
       </div>
       <button
@@ -122,7 +124,9 @@ export function LeadForm({ variant }: { variant: Variant }) {
           ? "Sending…"
           : variant === "valuation"
             ? "Request my valuation"
-            : "Send message"}
+            : variant === "careers"
+              ? "Start the conversation"
+              : "Send message"}
       </button>
       {status === "error" && (
         <p className="text-sm text-graphite" role="alert">

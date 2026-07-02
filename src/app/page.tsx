@@ -149,10 +149,15 @@ export default function HomePage() {
         <h2 className="display mt-4 text-3xl md:text-5xl">
           Every home, launched <em>properly.</em>
         </h2>
-        <p className="mt-4 max-w-xl leading-relaxed text-slate">
-          Twilight photography, cinematic video, and a one-week launch — from
-          landmark estates to three-bed ranches.
-        </p>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <p className="mt-4 max-w-xl leading-relaxed text-slate">
+            Twilight photography, cinematic video, and a one-week launch —
+            from landmark estates to three-bed ranches.
+          </p>
+          <Link href="/work" className="btn btn-secondary">
+            See our work
+          </Link>
+        </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {[
             {

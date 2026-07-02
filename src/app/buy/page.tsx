@@ -3,10 +3,12 @@ import Image from "next/image";
 import {
   AccentHeadline,
   CtaBand,
+  FaqSection,
   PageHero,
   StepList,
 } from "@/components/ui";
 import { buyerAdvantages, buyHero, buyProcess } from "@/content/buy";
+import { buyFaqs } from "@/content/faq";
 
 export const metadata: Metadata = {
   title: "Buy a Home",
@@ -70,6 +72,12 @@ export default function BuyPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        eyebrow="Buyer questions"
+        headline={{ before: "Asked ", accent: "often", after: "." }}
+        faqs={buyFaqs}
+      />
 
       <CtaBand
         headline={{ before: "Ready to start ", accent: "looking", after: "?" }}
