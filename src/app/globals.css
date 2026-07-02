@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  /* Zeoli Realty brand tokens — monochrome (green paused) */
+  --color-ink: #141414;
+  --color-paper: #ffffff;
+  --color-bone: #f4f2ec;
+  --color-stone: #8c8b7e;
+  --color-graphite: #6b6b66;
+  --color-slate: #7c7a72;
+  --color-linen: #d6d3ca; /* warm border */
+
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+
+  --radius-brand: 10px;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bone);
+}
+
+@layer components {
+  /* Eyebrow label — Plus Jakarta 700, uppercase, tracked out */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+
+  /* Display headlines — Newsreader with one italic accent word */
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  .display em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-stone);
+  }
+  .on-dark .display em,
+  .display.on-dark em {
+    color: var(--color-linen);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-brand);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1;
+    padding: 1rem 1.5rem;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .btn-primary:hover {
+    background: var(--color-graphite);
+  }
+  .btn-secondary {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    border: 1px solid var(--color-linen);
+  }
+  .btn-secondary:hover {
+    background: var(--color-bone);
+  }
+  .btn-on-dark {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+  .btn-on-dark:hover {
+    background: var(--color-bone);
+  }
+  .btn-outline-dark {
+    background: transparent;
+    color: var(--color-paper);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+  .btn-outline-dark:hover {
+    border-color: var(--color-paper);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* Signature arch crop — semicircular top, gently rounded base */
+  .arch {
+    border-radius: 9999px 9999px var(--radius-brand) var(--radius-brand);
+    overflow: hidden;
+  }
+
+  .form-field {
+    width: 100%;
+    border: 1px solid var(--color-linen);
+    border-radius: var(--radius-brand);
+    background: var(--color-paper);
+    padding: 0.875rem 1rem;
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+    outline: none;
+    transition: border-color 150ms ease;
+  }
+  .form-field::placeholder {
+    color: var(--color-slate);
+  }
+  .form-field:focus {
+    border-color: var(--color-graphite);
+  }
+  .form-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-graphite);
+    margin-bottom: 0.375rem;
+  }
+}
